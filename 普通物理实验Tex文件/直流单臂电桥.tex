@@ -1,0 +1,522 @@
+\documentclass[UTF8]{ctexart}
+% 基本设置和必要宏包
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8}
+
+% 数学相关宏包
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{mathtools}
+\usepackage{amsbsy}
+\usepackage{amstext}
+\usepackage{wasysym}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+
+% 图形和颜色
+%\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{float}
+
+% 其他功能性宏包
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{cite}
+\usepackage{appendix}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{abstract}
+\usepackage{multirow}
+
+
+\usepackage{diagbox} 
+
+% 允许公式跨页
+\allowdisplaybreaks[4]
+
+
+
+\newcommand{\sihaoheiti}{\fontsize{14pt}\selectfont\heiti}
+% 设置全局字体
+%\setCJKmainfont{SimSun} % 设置正文为宋体
+%\setCJKsansfont{SimHei} % 设置无衬线字体为黑体
+
+% 论文题目设置为三号黑体字，并居中
+\newcommand{\threelargebf}{\fontsize{16pt}{19.2pt}\selectfont\heiti\centering}
+
+% 一级标题设置为四号黑体字，并居中
+\titleformat{\section}{\centering\fontsize{14pt}{16pt}\bfseries\heiti}{\thesection}{1em}{}
+
+% 二级标题设置为小四号黑体字，左对齐
+\titleformat{\subsection}{\fontsize{12pt}{14.4pt}\bfseries\heiti}{\thesubsection}{1em}{\raggedright}
+
+% 三级标题设置为小四号黑体字，左对齐
+\titleformat{\subsubsection}{\fontsize{12pt}{14.4pt}\bfseries\heiti}{\thesubsubsection}{1em}{\raggedright}
+
+% 正文字体设置为小四号宋体字，并使用单倍行距
+\renewcommand{\normalsize}{\fontsize{12pt}{14.4pt}\selectfont}
+%\renewcommand{\baselinestretch}{3}
+%\selectfont
+
+
+
+%\linespread{5.0}%修改行距
+\graphicspath{{img/}}
+\let\itemize\compactitem
+\let\enditemize\endcompactitem
+% 设置页面布局
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
+\setstretch{1.2}
+
+\renewcommand{\arraystretch}{1.5}
+\newcommand{\thickhline}{\noalign{\hrule height 1.2pt}} % 设置粗线的宽度
+\newcommand{\thinhline}{\noalign{\hrule height 0.8pt}} % 设置细线的宽度
+
+%%%% ===== 定理环境
+\usepackage[amsmath,thref,thmmarks,hyperref]{ntheorem} % 定理宏包
+%\theorempreskipamount1em % spacing before the environment
+%\theorempostskipamount0em  % spacing after the environment
+%\theoremstyle{plain}
+%\theoremheaderfont{\normalfont\heiti}
+%\theorembodyfont{\normalfont\kaishu}
+%\theoremindent0em
+%\theoremseparator{\hspace{0.2em}}
+%\theoremnumbering{arabic}
+
+\newtheorem{property}{性质}[section]
+\newtheorem{definition}{定义}[section]
+\newtheorem{lemma}{引理}[section]
+\newtheorem{remark}{注记}[section]
+\newtheorem{corollary}{推论}[section]
+\newtheorem{example}{例}[section] 
+\newtheorem{problem}{{问题}}
+
+ \renewcommand{\abstractnamefont}{\normalfont\bfseries}  % 摘要标题字体：正常字体，粗体
+\renewcommand{\abstracttextfont}{\normalfont\normalsize}     % 摘要内容字体：正常字体，小四号
+
+% 设置页眉页脚
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% 设置标题格式
+\titleformat{\section}{\centering\heiti\large}{\thesection}{1em}{}
+\titleformat{\subsection}{\raggedright\heiti\normalsize}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\raggedright\heiti\normalsize}{\thesubsubsection}{1em}{}
+
+% 设置摘要环境
+%\newenvironment{myabstract}{
+%	\begin{center}
+%	\bfseries\zihao{-3} 摘要
+%	\end{center}
+%	\vspace{-0.5em} % 调整摘要与论文题目的距离
+%	\normalsize
+%}{
+%}
+% 设置附录环境
+\renewcommand{\appendixname}{附录}
+\renewcommand{\appendixpagename}{附录}
+
+% 设置代码环境
+\lstset{
+	basicstyle=\small\ttfamily,
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!70!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	numbers=left,
+	numberstyle=\tiny,
+	frame=tb,
+	language=Python
+}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+
+\begin{titlepage}		
+		\includepdf[pages=-]{电桥封面.pdf}
+\end{titlepage}
+
+\section{实验内容}
+\begin{enumerate}
+    \item 将待测电阻$R_x$与3个电阻箱$R_1$、$R_2$、$R_0$如图所示连成桥路，并用数字万用表电压档作为示零计。保证桥路有较高灵敏度的前提下测量阻值量级为$10^2 \ \Omega$、$10^3\ \Omega$、$10^4 \ \Omega$的3个待测电阻，计算其合成不确定度
+    \item 改变$R_0$的取值使电压表变化为最小分辨率的$10 \sim 20$倍，并记录电压微小变化$\Delta U$、电阻变化$\Delta R_0$，并计算电桥灵敏度误差$S$
+    \item 分别改变电源电压、电桥臂阻值、示零器量程测量与上述测量值相同的实验量$R_0$、$\Delta U$、$\Delta R_0$、$S$
+    \item 用直流式电箱测量$10^2 \ \Omega$、$10^3 \ \Omega$、$10^4 \ \Omega$三个量级的三个未知电阻，每个电阻测量一次并取四个旋钮，使测量结果有效数字为4位。同时测定直流箱式电桥的灵敏度。
+\end{enumerate}
+
+
+\vspace{5cm}
+\section{原始数据}
+
+\begin{table}[H]
+\centering
+\caption{自组电桥测量未知电阻及电桥灵敏度}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+ 电压  &  量程   &   $R_x$  &  $R_1$   &  $R_2$   &  $R_0$   &   $\Delta R_0$  &  $\Delta U$  &  $R_x$  &   $S$ \\
+\hline
+ \multirow{5}{*}{$3 \ V$}  & \multirow{6}{*}{$200 \ mV$} & $10^2$ &  1000 &  1000 &  97.5  &   5.2  &  $0.017 \ mV$  &      &    \\ \cline{3-10} 
+
+  &   &    $10^4$ &  1000  &  1000  &   19490.0   &1000.0  &   $0.017\ mV$  &    &  \\\cline{3-10} 
+
+  &   &    \multirow{5}{*}{$10^3$}  &   1000 &  1000  &   988.1   &  9.9  &  $0.013 \ mV$  &   &   \\\cline{4-10} 
+
+  &   &    &   1000  &  100  &  97.6  &   4.0   &  $0.020 \ mV$  &    &    \\\cline{4-10} 
+
+  &   &    &   100   &  1000 &  9753.2  &  400.0  &  $0.017 \ mV$  &   &   \\\cline{4-10} \cline{1-1}
+
+  \multirow{2}{*}{$4 \ V$} &     &   &   1000  &  1000 & 987.6   &  10.0  &  $0.013 \ mV$ &   & \\\cline{4-10} \cline{2-2}
+
+  &     $2 \ V$  &    &   1000   &  1000  &$  989.0$  &100.0  &  $0.00013 \ V$  &   &\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{用直流箱式电桥测电阻及测定电桥灵敏度}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+ 电压     &   $R_x$  &  $C$   &  $R_0$   &  $ \Delta R_0$   &   $\Delta U$  &  $R_x$  &   $S$ \\
+\hline
+ \multirow{2}{*}{$3 \ V$}  &  $10^2$ &  $0.1$ &  271.4 &  0.9    &  18格 &  &    \\ \cline{2-8} 
+
+ &  \multirow{2}{*}{$10^3$} &  \multirow{2}{*}{$1$} &   3611  &  20  &  15格 &  &  \\ \cline{1-1}  \cline{4-8}
+
+ $6 \ V$ &    &   &   3610  &  11  &  18格  &   &  \\ \cline{1-8}
+
+$3 \ V$  &  $10^4$  & 10  &  1866   &  20   &  -13 格  &   &   \\ \cline{1-8}
+\hline
+\end{tabular}
+\end{table}
+
+\section{数据处理}
+
+\subsection{电桥灵敏度的计算}
+
+根据公式 
+\begin{align*}
+    R_x &= \frac{R_1}{R_2}R_0   \quad  \text{及}  \quad R_x = CR_0 \\
+    S &= \frac{\Delta U}{\Delta R_0 /R_0} 
+\end{align*}
+
+计算得
+表一、表二中对应结果如下
+\begin{table}[H]
+    \centering
+    \caption*{表一所对应结果}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+        组别 & 1 & 2 & 3 & 4 & 5  & 6 & 7  \\
+    \hline
+        $\frac{ \Delta R_0}{R_0}$ &  0.0533 & 0.0513 & 0.0100 & 0.0410 & 0.0410 & 0.0101 & 0.1011 \\
+    \hline
+        $R_x$  &  97.5 &  19490.0  & 988.1  &  976.0  &  975.3 &  987.6 
+& 989.0 \\
+    \hline
+        $S$ & 0.3189 & 0.3314 &  1.3000 & 0.4878 & 0.4146 & 1.2871 & 1.2859 \\
+    \hline
+    \end{tabular}
+\end{table}
+\begin{table}[H]
+    \centering
+    \caption*{表二中对应结果}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+       组别  &  1 & 2 & 3 &  4   \\
+    \hline
+       $\frac{ \Delta R_0}{R_0}$  & 0.00332 & 0.00554 & 0.00305 & 0.01072  \\
+    \hline
+        $R_x$  & 27.14 & 3611 & 3610 & 18660 \\
+    \hline
+        $S$ & 5421.7 & 2707.6 & 5901.6 & 1212.7 \\
+    \hline
+    \end{tabular}
+\end{table}
+其中上述 表格中$R_x$单位为$\Omega$，$S$单位为$mV$
+
+\newpage
+
+\subsection{不确定度的计算}
+\textbf{表一数据的处理}
+
+由于上述$R_1$、$R_2$为给定阻值电阻，故其测量不确定度由电阻箱等级所直接得到
+\begin{align*}
+    \frac{\delta R_1}{R_1} = \frac{\delta R_2}{R_2} = \frac{\delta R_0}{R_0} = 0.1\%
+\end{align*}
+由电压表量程为$200mV$，最小分度为$0.001mV$；电压表量程为$2V$时，对应最小分度值为$0.00001V$，此时由公式
+\begin{align*}
+    \frac{\Delta R_x}{R_x} &= \frac{0.001 mV}{S} \\
+    \frac{\Delta R_x}{R_x} &= \frac{0.00001V}{S} 
+\end{align*}
+带入将表一、表二所对应结果带入上述公式可得
+\begin{align*}
+ \text{表1} \quad  \frac{\Delta R_x}{R_x} &= \frac{0.001}{0.3189} = 0.00314 \quad
+      \frac{\Delta R_x}{R_x} = \frac{0.001}{0.3314} = 0.00302\\
+    \frac{\Delta R_x}{R_x} &= \frac{0.001}{1.3000} = 0.00077\quad
+    \frac{\Delta R_x}{R_x} = \frac{0.001}{0.4878} = 0.00205 \\
+    \frac{\Delta R_x}{R_x} &= \frac{0.001}{0.4146} = 0.00241\quad
+    \frac{\Delta R_x}{R_x} = \frac{0.001}{1.2371} = 0.00081 \\
+    \frac{\Delta R_x}{R_x} &= \frac{0.00001}{0.001259} = 0.00794
+\end{align*}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+        组别 &  1 & 2 & 3 & 4  & 5 & 6 & 7 \\
+    \hline
+       $\frac{\Delta R_x}{R_x}$  & 0.00314 & 0.00302 & 0.00077 & 0.00205 & 0.00241 & 0.00081  & 0.00794 \\
+    \hline
+    \end{tabular}
+\end{table}
+由测量的总相对不确定度为
+\begin{align*}
+    \frac{\sigma_{R_x}}{R_x}  = \sqrt{\left( \frac{\delta R_1}{R_1}\right)^2 +
+    \left( \frac{\delta R_2}{R_2}\right)^2  + \left( \frac{\delta R_0}{R_0}\right)^2 + \left( \frac{\Delta R_x}{R_x}\right)^2}
+\end{align*}
+\begin{align*}
+    \sigma_{R_x} &= \sqrt{\left( 0.001\right)^2 +
+    \left( 0.001\right)^2  + \left( 0.001\right)^2 + \left( 0.00314\right)^2} \times 97.5 \ \Omega  = 0.35 \ \Omega\\
+    \sigma_{R_x} &= \sqrt{\left( 0.001\right)^2 +
+    \left( 0.001\right)^2  + \left( 0.001\right)^2 + \left( 0.00302\right)^2} \times 19490.0 \ \Omega  = 67.85 \ \Omega\\
+    \sigma_{R_x} &= \sqrt{\left( 0.001\right)^2 +
+    \left( 0.001\right)^2  + \left( 0.001\right)^2 + \left( 0.00077\right)^2} \times 988.1 \ \Omega  = 1.87 \ \Omega\\
+    \sigma_{R_x} &= \sqrt{\left( 0.001\right)^2 +
+    \left( 0.001\right)^2  + \left( 0.001\right)^2 + \left( 0.00205\right)^2} \times 976.0 \ \Omega  = 2.62 \ \Omega\\
+    \sigma_{R_x} &= \sqrt{\left( 0.001\right)^2 +
+    \left( 0.001\right)^2  + \left( 0.001\right)^2 + \left( 0.00241\right)^2} \times 975.3 \ \Omega  = 2.89 \ \Omega\\
+    \sigma_{R_x} &= \sqrt{\left( 0.001\right)^2 +
+    \left( 0.001\right)^2  + \left( 0.001\right)^2 + \left( 0.00081\right)^2} \times 987.6 \ \Omega  = 1.89\ \Omega\\
+    \sigma_{R_x} &= \sqrt{\left( 0.001\right)^2 +
+    \left( 0.001\right)^2  + \left( 0.001\right)^2 + \left( 0.00794\right)^2} \times 989.0 \ \Omega  = 8.04 \ \Omega
+\end{align*}
+
+\begin{table}[H]
+\caption*{自组电桥测量结果列表}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+ 电压  &  量程   &   $R_x$  &  $R_1$   &  $R_2$   &  $R_0$   &   $\Delta R_0$  &  $\Delta U$     &  $R_x = R_x \pm \sigma_{R_x}$  &   $S$ \\
+\hline
+ \multirow{5}{*}{$3 \ V$}  & \multirow{6}{*}{$200 \ mV$} & $10^2$ &  1000 &  1000 &  97.5  &   5.2  &  $0.017 \ mV$  &  $97.5 \pm 0.35$   &  0.3189  \\ \cline{3-10} 
+
+  &   &    $10^4$ &  1000  &  1000  &   19490.0   &1000.0  &   $0.017\ mV$  &   $19490.0 \pm 67.85$ & 0.3314  \\\cline{3-10} 
+
+  &   &    \multirow{5}{*}{$10^3$}  &   1000 &  1000  &   988.1   &  9.9  & $0.013 \ mV$  &  $988.1 \pm 1.87$ & 1.3000  \\\cline{4-10} 
+
+  &   &    &   1000  &  100  &  97.6  &   4.0   &  $0.020 \ mV$ &   $976.0 \pm 2.62$  &  0.4878  \\\cline{4-10} 
+
+  &   &    &   100   &  1000 &  9753.2  &  400.0  &  $0.017 \ mV$  &  $975.3 \pm 2.89$  & 0.4146  \\\cline{4-10} \cline{1-1}
+
+  \multirow{2}{*}{$4 \ V$} &     &   &   1000  &  1000 & 987.6   &  10.0  &  $0.013 \ mV$ & $987.6 \pm 1.89$  & 1.2871 \\\cline{4-10} \cline{2-2}
+
+  &     $2 \ V$  &    &   1000   &  1000  &$  989.0$  &100.0  &  $0.00013 \ V$   & $989.0 \pm 8.04$  & 1.2859\\
+\hline
+\end{tabular}
+\begin{tablenotes}
+\centering
+    \footnotesize
+    \item[*] *表格中电阻单位均为$\Omega$，$S$单位为$mV$
+\end{tablenotes}
+\end{table}
+上述表格对应的$\frac{\Delta R_x}{R_x}$、$\frac{\delta R_x}{R_x}$如下：
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+        组别 &  1 & 2 & 3 & 4  & 5 & 6 & 7 \\
+    \hline
+       $\frac{\Delta R_x}{R_x}$  & 0.00314 & 0.00302 & 0.00077 & 0.00205 & 0.00241 & 0.00081  & 0.00794 \\
+    \hline
+       $\frac{\delta R_x}{R_x}$ & 0.00173 & 0.00173 & 0.00173 & 0.00173 & 0.00173 & 0.00173 & 0.00173 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\textbf{表二数据的处理}
+
+由直流式电箱的检流计最小分度为1格，故同上
+\begin{align*}
+    \frac{\Delta R_x}{R_x} = \frac{1}{S} 
+\end{align*}
+\begin{align*}
+ \text{表2} \quad  \frac{\Delta R_x}{R_x} &= \frac{1}{5421.7} = 0.00018 \quad \frac{\Delta R_x}{R_x} = \frac{1}{2707.6} = 0.00037\\
+ \frac{\Delta R_x}{R_x} &= \frac{1}{5901.6} = 0.00017 \quad \frac{\Delta R_x}{R_x} = \frac{1}{1212.7} = 0.00082 
+\end{align*}
+由公式$R_x = CR_0$可知，其中$\delta R_0 = \frac{1}{\sqrt{3}} \ \Omega = 0.577 \ \Omega$
+\begin{align*}
+    \frac{\delta R_x}{R_x} &= C\frac{\delta R_0}{R_0} 
+\end{align*}
+\begin{align*}
+     \frac{\delta R_x}{R_x} &= 0.1 \times \frac{0.577}{271.4} =  0.00021 \quad
+    \frac{\delta R_x}{R_x} = 1 \times \frac{0.577}{3611} = 0.00016 \\
+    \frac{\delta R_x}{R_x} &= 1 \times \frac{0.577}{3610} = 0.00016 \quad
+    \frac{\delta R_x}{R_x} = 10 \times \frac{0.577}{1866} = 0.00310
+\end{align*}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        组别 &  1 & 2 & 3 & 4   \\
+    \hline
+       $\frac{\Delta R_x}{R_x}$  & 0.00018 & 0.00037 & 0.00017 & 0.00082  \\
+    \hline
+       $\frac{\delta R_x}{R_x}$ & 0.00021  & 0.00016 & 0.00016 & 0.00310 \\
+    \hline
+       $\beta$ &   $0.021$ &   $0.037$  &  $0.017$  & $0.082$ \\
+    \hline
+    \end{tabular}
+\end{table}
+同上带入公式即可得到
+\begin{align*}
+    \sigma_{R_x} =  \sqrt{\left( C\frac{\delta R_0}{R_0}\right)^2 +
+     \left( \frac{\Delta R_x}{R_x}\right)^2} R_x
+\end{align*}
+\begin{align*}
+     \sigma_{R_x} &= \sqrt{\left(0.00021\right)^2 +
+     \left( 0.00018\right)^2} \times 27.14 \ \Omega =0.008 \ \Omega \\
+     \sigma_{R_x} &= \sqrt{\left(0.00016\right)^2 + 
+     \left( 0.00037\right)^2} \times 3611 \ \Omega = 1.456\ \Omega \\
+     \sigma_{R_x} &= \sqrt{\left(0.00016\right)^2 +
+     \left( 0.00017\right)^2} \times 3610\ \Omega = 0.843 \ \Omega \\
+     \sigma_{R_x} &= \sqrt{\left(0.00310\right)^2 +
+     \left( 0.00082\right)^2} \times 18660 \ \Omega = 59.835 \ \Omega 
+\end{align*}
+\begin{table}[H]
+\centering
+\caption{直流箱式电桥测量结果列表}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+ 电压     &   $R_x$  &  $C$   &  $R_0$   &  $ \Delta R_0$   &   $\Delta U$  &  $R_x$  &   $S$  \\
+\hline
+ \multirow{2}{*}{$3 \ V$}  &  $10^2$ &  $0.1$ &  271.4 &  0.9    &  18格 & 27.14 & 5421.7    \\ \cline{2-8} 
+
+ &  \multirow{2}{*}{$10^3$} &  \multirow{2}{*}{$1$} &   3611  &  20  &  15格 & 3611 & 2707.6  \\ \cline{1-1}  \cline{4-8}
+
+ $6 \ V$ &    &   &   3610  &  11  &  18格  &  3610 & 5901.6 \\ \cline{1-8}
+
+$3 \ V$  &  $10^4$  & 10  &  1866   &  20   &  -13 格  & 18660  & 1212.7  \\ \cline{1-8}
+\hline
+\end{tabular}
+\begin{tablenotes}
+\centering
+    \footnotesize
+    \item[*] *表格中电阻单位均为$\Omega$，$S$单位为$mV$
+\end{tablenotes}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+       组别  & $\frac{\Delta R_x}{R_x}$  &  $\delta R_x = \beta\% \cdot R_x$ & $R_x = R_x \pm \sigma_{R_x}$  \\
+    \hline
+        1 & 0.00018 & $\delta R_x = 0.021\% \cdot 27.14$  & $27.14 \pm 0.008$ \\
+    \hline
+        2 &  0.00037 &  $\delta R_x = 0.037\% \cdot 3611$ & $3611 \pm 1.456$ \\
+    \hline
+        3 &  0.00017  &  $\delta R_x = 0.017\% \cdot 3610$& $3610 \pm 0.843$ \\
+    \hline
+        4 &  0.00082  & $\delta R_x = 0.082\% \cdot 18660$ & $59.835\pm 163.581$\\
+    \hline
+    \end{tabular}
+    \begin{tablenotes}
+\centering
+    \footnotesize
+    \item[*] *表格中电阻单位均为$\Omega$
+\end{tablenotes}
+\end{table}
+
+\section{实验结论}
+
+\subsection{电桥灵敏度与桥路元件的关系}
+\begin{enumerate}
+    \item 电路的总阻值越低，电桥灵敏度越高
+    \item 比例臂的比值越大。电桥的灵敏度越高
+    \item 电源电压越高，电桥的灵敏度越高
+    \item 示零器的量程越小，电桥灵敏度越高
+\end{enumerate}
+
+
+\subsection{直流式电桥灵敏度的影响因素}
+\begin{enumerate}
+    \item 电源电压越高，灵敏度越高
+    \item 比例臂的比值越小，灵敏度越高
+\end{enumerate}
+
+\subsection{电桥测量电阻的误差来源}
+\begin{enumerate}
+    \item 电阻随温度变化阻值发生改变
+    \item 检流计灵敏度不足造成偶然误差
+    \item 导线老化导致导线电阻对测量值产生影响
+    \item 检流计未稳定时读数带来误差
+\end{enumerate}
+\section{思考题}
+\subsection{是否可以随意增加电源电压以及相应原因}
+不可以随意增加电源电压
+
+首先电源的电路有最大额定功率限制，超出最大功率很有可能直接烧毁实验元件，造成实验安全隐患；同时电源电压过高时，实验元件烧坏可能导致读数产生较大误差
+
+\subsection{电源电压不稳定是否影响测量准确度且测量低电阻时导线电阻是否可以忽略}
+\begin{enumerate}
+    \item 电源电压不稳定时不影响测量准确度，只需要电桥示零计实数为0节课达到电桥平衡状态
+    \item 若所测电阻阻值过低，此时导线电阻分压较高，也会导致电桥不平衡，从而应将考虑导线电阻进行计算
+\end{enumerate}
+
+\subsection{利用三个电阻箱、一个滑动电阻器、一块微安表、一个直流电源、两个单刀开关测量微安表内阻并画出线路图、叙述测量方法}
+\begin{enumerate}
+    \item 估测$R_g$：连接电路如图，首先断开$K_2$，打开$K_1$，调整$R_1$的阻值，使得微安表的示数在满偏$\frac{2}{3}$左右，根据电流表的示数计算出$R_g$的
+    \item 精测$R_g$：闭合$K_1$和$K_2$。调节$R_1$使得$R_1 = R_2$，调节$R_0$阻值在$R_g$估测值左右，观察微安表的示数、调节$R_0$过程中，若达到$R_0$，则无论怎么滑动变阻器滑片，微安表的示数均不变，此时记$R_0$阻值为当前的$R'_{0}$
+    \item 对调$R_1$、$R_2$位置，重复第二步操作，将两次$R_0$阻值相乘取平方根，即为微安表所求内阻
+\end{enumerate}
+
+
+\vspace{4cm}
+\subsection{互换$R_1$和$R_2$电桥不平衡说明什么以及重调平衡后得到$R'_0$，说明得到的$R_x$；并求$R_1$、$R'_2$、$R_0$均为0.1级电阻时测量的$R_x$的不确定的}
+\begin{enumerate}
+    \item $R_1$和$R_2$互换后，电桥不平衡说明$R_1 \ne R_2$
+    \item $R_x = \sqrt{R_0 \cdot R'_0}$
+    \item 根据公式 $\delta R_x   = \sqrt{\left( \frac{\delta R_1}{R_1}\right)^2 +
+    \left( \frac{\delta R_2}{R_2}\right)^2  + \left( \frac{\delta R_0}{R_0}\right)^2 } R_x$ 可得 $\delta R_x = 1.73 \times 10^{-3} R_x$
+\end{enumerate}
+\end{document}
